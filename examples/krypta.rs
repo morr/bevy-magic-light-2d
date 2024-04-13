@@ -938,5 +938,12 @@ fn system_move_camera(
     for mut camera_transform in query_cameras.iter_mut() {
         camera_transform.translation.x = camera_current.x;
         camera_transform.translation.y = camera_current.y;
+
+        if keyboard.pressed(KeyCode::ArrowUp) {
+            camera_transform.scale *= 1.01;
+        }
+        if keyboard.pressed(KeyCode::ArrowDown) {
+            camera_transform.scale *= 0.99;
+        }
     }
 }
